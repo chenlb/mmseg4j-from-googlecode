@@ -30,7 +30,7 @@ public class AnalyzerTest extends TestCase {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void testComplex() {
 		Analyzer analyzer = new ComplexAnalyzer();
 		try {
@@ -49,7 +49,7 @@ public class AnalyzerTest extends TestCase {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void testMaxWord() {
 		Analyzer analyzer = new MaxWordAnalyzer();
 		try {
@@ -68,27 +68,27 @@ public class AnalyzerTest extends TestCase {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void testCutLeeterDigitFilter() {
 		try {
 			txt = "mb991ch cq40-519tx mmseg4j ";
-			printlnToken(txt, new MMSegAnalyzer() {
-
-				@Override
-				public TokenStream tokenStream(String fieldName, Reader reader) {
-					
-					return new CutLetterDigitFilter(super.tokenStream(fieldName, reader));
-				}
-				
-			});
+			printlnToken(txt, new CutLetterDigitFilter(new MMSegAnalyzer().tokenStream("text", new StringReader(txt))));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	private TokenStream toTokenStream(String txt, Analyzer analyzer) throws IOException {
+		return analyzer.tokenStream("text", new StringReader(txt));
+	}
+
 	private void printlnToken(String txt, Analyzer analyzer) throws IOException {
+		printlnToken(txt, toTokenStream(txt, analyzer));
+	}
+
+	private void printlnToken(String txt, TokenStream ts) throws IOException {
 		System.out.println("---------"+txt.length()+"\n"+txt);
-		TokenStream ts = analyzer.tokenStream("text", new StringReader(txt));
+		//TokenStream ts = analyzer.tokenStream("text", new StringReader(txt));
 		/*//lucene 2.9 以下
 		for(Token t= new Token(); (t=ts.next(t)) !=null;) {
 			System.out.println(t);
@@ -97,7 +97,7 @@ public class AnalyzerTest extends TestCase {
 			TermAttribute termAtt = (TermAttribute)ts.getAttribute(TermAttribute.class);
 			OffsetAttribute offsetAtt = (OffsetAttribute)ts.getAttribute(OffsetAttribute.class);
 			TypeAttribute typeAtt = (TypeAttribute)ts.getAttribute(TypeAttribute.class);
-			
+
 			System.out.println("("+termAtt.term()+","+offsetAtt.startOffset()+","+offsetAtt.endOffset()+",type="+typeAtt.type()+")");
 		}*/
 		for(Token t= new Token(); (t=TokenUtils.nextToken(ts, t)) !=null;) {

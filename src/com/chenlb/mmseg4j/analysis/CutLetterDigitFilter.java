@@ -120,7 +120,7 @@ public class CutLetterDigitFilter extends TokenFilter {
 		tokenQueue.clear();
 	}
 
-	public boolean incrementToken() throws IOException {
+	public final boolean incrementToken() throws IOException {
 		clearAttributes();
 		Token token = nextToken(reusableToken);
 		if(token != null) {

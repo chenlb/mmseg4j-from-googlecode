@@ -59,7 +59,7 @@ public class MMSegAnalyzer extends Analyzer {
 	}
 	
 	@Override
-	public TokenStream reusableTokenStream(String fieldName, Reader reader)
+	public final TokenStream reusableTokenStream(String fieldName, Reader reader)
 			throws IOException {
 		
 		MMSegTokenizer mmsegTokenizer = (MMSegTokenizer) getPreviousTokenStream();
@@ -74,7 +74,7 @@ public class MMSegAnalyzer extends Analyzer {
 	}
 
 	@Override
-	public TokenStream tokenStream(String fieldName, Reader reader) {
+	public final TokenStream tokenStream(String fieldName, Reader reader) {
 		TokenStream ts = new MMSegTokenizer(newSeg(), reader);
 		return ts;
 	}

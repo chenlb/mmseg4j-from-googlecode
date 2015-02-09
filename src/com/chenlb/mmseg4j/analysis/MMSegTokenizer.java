@@ -57,7 +57,7 @@ public class MMSegTokenizer extends Tokenizer {
 
 	//lucene 2.9/3.0
 	@Override
-	public boolean incrementToken() throws IOException {
+	public final boolean incrementToken() throws IOException {
 		clearAttributes();
 		Word word = mmSeg.next();
 		if(word != null) {
