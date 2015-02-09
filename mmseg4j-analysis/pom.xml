@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.chenlb.mmseg4j</groupId>
+    <artifactId>mmseg4j</artifactId>
+    <version>1.8.6-SNAPSHOT</version>
+  </parent>
+  <groupId>com.chenlb.mmseg4j</groupId>
+  <artifactId>mmseg4j-analysis</artifactId>
+  <name>mmseg4j-analysis</name>
+	<packaging>jar</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.chenlb.mmseg4j</groupId>
+			<artifactId>mmseg4j-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>../src</sourceDirectory>
+		<testSourceDirectory>../test</testSourceDirectory>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<encoding>UTF-8</encoding>
+					<excludes>
+						<exclude>**/rule/**</exclude>
+						<exclude>**/example/**</exclude>
+						<exclude>**/mmseg4j/*.java</exclude>
+						<exclude>**/solr/**</exclude>
+					</excludes>
+					<includes>
+						<include>**/analysis/**</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<id>default-testCompile</id>
+						<phase>test-compile</phase>
+						<configuration>
+							<testExcludes>
+								<exclude>**</exclude>
+							</testExcludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
