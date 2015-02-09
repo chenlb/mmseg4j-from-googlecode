@@ -39,7 +39,7 @@ public class ComplexSegTest extends TestCase {
 	
 	public void testEffect2() throws IOException {
 		String words = segW.segWords("眼看就要来了", "|");
-		assertEquals("眼看|就要|来了", words);
+		assertEquals("眼看|就要|来|了", words);
 	}
 	
 	public void testEffect3() throws IOException {
@@ -86,7 +86,7 @@ public class ComplexSegTest extends TestCase {
 	}
 	public void testUnitEffect() throws IOException {
 		String words = segW.segWords("2008年底发了资金吗", "|");
-		assertEquals("2008|年|底|发了|资金|吗", words);
+		assertEquals("2008|年|底|发|了|资金|吗", words);
 	}
 	
 	public void testUnitEffect1() throws IOException {

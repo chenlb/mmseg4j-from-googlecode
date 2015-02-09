@@ -2,6 +2,7 @@ package com.chenlb.mmseg4j;
 
 import java.io.File;
 
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class DictionaryTest extends TestCase {
@@ -68,14 +69,17 @@ public class DictionaryTest extends TestCase {
 	public void testFileHashCode() {
 		File f = new File("data");
 		File f1 = new File("M:/eclipse 3.3.2/workspace/mmseg4j/data");
-		System.out.println(f.getAbsolutePath());
-		System.out.println(f1);
-		System.out.println(f.equals(f1));
+		//System.out.println(f.getAbsolutePath());
+		//System.out.println(f1);
+		Assert.assertFalse(f.equals(f1));
 		
 		f1 = new File("data");
-		System.out.println(f.equals(f1)+" -> "+f.hashCode()+", "+f1.hashCode());
+		//System.out.println(f.equals(f1)+" -> "+f.hashCode()+", "+f1.hashCode());
+		Assert.assertTrue(f.equals(f1));
+		Assert.assertEquals(f.hashCode(), f1.hashCode());
 		
 		f1 = new File("./data");
-		System.out.println(f.equals(f1));
+		//System.out.println(f.equals(f1));
+		Assert.assertFalse(f.equals(f1));
 	}
 }

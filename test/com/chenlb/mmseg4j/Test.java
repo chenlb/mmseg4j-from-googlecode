@@ -51,7 +51,7 @@ public class Test extends TestCase {
 		System.out.println(path);
 	}
 	
-	public void testZhNumCodeP() {
+	public void _testZhNumCodeP() {
 		String num = "０１２３４５６７８９";
 		String n = "0123456789";
 		for(int i=0; i<num.length(); i++) {
@@ -61,7 +61,7 @@ public class Test extends TestCase {
 		}
 	}
 	
-	public void testCodePAndType() {
+	public void _testCodePAndType() {
 		String str = "09０９☆§┍┄○一＄￥≈∑①⑩㈠㈩⒈⒑⒒⒛⑴⑽⑾⒇！中文【ゥスぁまēūㄇㄎноνπⅠⅡⅢ";
 		
 		str = "ぁぃぅぇぉかきくけこんさしすせそたちつってとゐなにぬねのはひふへほゑまみむめもゃゅょゎを";
@@ -96,7 +96,7 @@ public class Test extends TestCase {
 		}
 	}
 	
-	public void testCodePAndType2() {
+	public void _testCodePAndType2() {
 		
 		int start = 12435+1;
 		int end = 12449-1;
@@ -126,8 +126,10 @@ public class Test extends TestCase {
 	private static long now() {
 		return System.currentTimeMillis();
 	}
-	
-	public void testSeeSogouDic() throws IOException {
+
+
+
+	public void _testSeeSogouDic() throws IOException {
 		Dictionary dic = Dictionary.getInstance("sogou");
 		Map<Character, CharNode> dict = dic.getDict();
 		long start = now();

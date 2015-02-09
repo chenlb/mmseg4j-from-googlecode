@@ -25,12 +25,12 @@ public class SimpleSegTest extends TestCase {
 	
 	public void testEffect2() throws IOException {
 		String words = segW.segWords("眼看就要来了", "|");
-		assertEquals("眼看|就要|来了", words);
+		assertEquals("眼看|就要|来|了", words);
 	}
 	
 	public void testEffect3() throws IOException {
 		String words = segW.segWords("中西伯利亚", "|");
-		assertEquals("中西|伯利|亚", words);
+		assertEquals("中西|伯|利|亚", words);
 	}
 	
 	public void testEffect4() throws IOException {
