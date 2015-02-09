@@ -14,3 +14,8 @@
 # Maven
 log/
 target/
+
+# ant
+build/
+ivy/
+lib/

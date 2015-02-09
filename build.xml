@@ -25,13 +25,13 @@
 	</path>
 
 	<path id="java.class.path">
-		<dirset dir="${build.java}">
+		<dirset dir="${build.java.dir}">
 			<include name="**" />
 		</dirset>
 	</path>
 	
 	<target name="resolve" description="--> retrieve dependencies with ivy" depends="install-ivy">
-		<ivy:retrieve pattern="${ivy.lib.dir}/[conf]/[artifact]-[revision].[ext]" />
+		<ivy:retrieve pattern="${lib.dir}/[conf]/[artifact]-[revision].[ext]" />
 	</target>
 
 	<target name="download-ivy" unless="skip.download">
