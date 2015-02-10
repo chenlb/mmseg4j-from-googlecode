@@ -22,7 +22,7 @@ mmseg4j 用 Chih-Hao Tsai 的 [MMSeg 算法](http://technology.chtsai.org/mmseg/
  * 1.7-beta 版, 目前 complex 1200kb/s左右, simple 1900kb/s左右, 但内存开销了50M左右. 上几个版都是在10M左右.
  * 1.8 后,增加 CutLetterDigitFilter 过虑器，切分“字母和数”混在一起的过虑器。比如：mb991ch 切为 "mb 991 ch"。
 
-mmseg4j实现的功能详情请看：https://raw.githubusercontent.com/chenlb/mmseg4j-from-googlecode/branches/mmseg4j-1.8/CHANGES.txt
+[mmseg4j实现的功能详情](https://raw.githubusercontent.com/chenlb/mmseg4j-from-googlecode/branches/mmseg4j-1.8/CHANGES.txt)
 
 ## 3、example
 
@@ -102,8 +102,8 @@ solrconfig.xml：
 此功能可以让外置程序做相关的控制，如：尝试加载词库，然后外置程序决定是否重做索引。
 
 
-在 solr 1.3/1.4 与 lucene 2.3/2.4/2.9 测试过，[官方博客](http://blog.chenlb.com/category/mmseg4j) ， 如果发现问题或bug与我联系 chenlb2008#gmail.com 。
+在 solr 1.3/1.4 与 lucene 2.3/2.4/2.9 测试过，[官方博客](http://blog.chenlb.com/category/mmseg4j)
 
 1.7.2 与 1.6.2 开始核心的程序与 lucene 和 solr 扩展分开打包，方便兼容低版本的 lucene，同时给出低版本（<= lucene 2.2）的 lucene 扩展请仿照 MMSegTokenizer.java。
 
-可以在 http://code.google.com/p/mmseg4j/issues/list 提出希望 mmseg4j 有的功能。 
+可以在新版 [mmseg4j-solr issues](https://github.com/chenlb/mmseg4j-solr/issues) 提出希望 mmseg4j 有的功能或 bug。
