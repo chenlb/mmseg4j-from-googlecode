@@ -41,6 +41,7 @@ mmseg4j 用 Chih-Hao Tsai 的 [MMSeg 算法](http://technology.chtsai.org/mmseg/
 <fieldType name="textComplex" class="solr.TextField" >
   <analyzer>
     <tokenizer class="com.chenlb.mmseg4j.solr.MMSegTokenizerFactory" mode="complex" dicPath="dic"/>
+    <filter class="com.chenlb.mmseg4j.solr.CutLetterDigitFilterFactory" />
   </analyzer>
 </fieldType>
 <fieldType name="textMaxWord" class="solr.TextField" >
@@ -54,6 +55,8 @@ mmseg4j 用 Chih-Hao Tsai 的 [MMSeg 算法](http://technology.chtsai.org/mmseg/
   </analyzer>
 </fieldType>
 ```
+
+一般都需要加 com.chenlb.mmseg4j.solr.CutLetterDigitFilterFactory 来分开字母与数字连接的。
 
 dicPath 指定词库位置（每个MMSegTokenizerFactory可以指定不同的目录，当是相对目录时，是相对 solr.home 的目录），mode 指定分词模式（simple|complex|max-word，默认是max-word）。
 
