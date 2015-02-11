@@ -85,7 +85,7 @@
 	</target>
 	<target name="jar-with-dic" depends="build.java">
 		<copy file="data/words.dic" todir="${build.java.dir}/data" preservelastmodified="true" />
-		<jar destfile="${build.dir}/${project.name}-all-${version}-with-dic.jar" basedir="${build.java.dir}" >
+		<jar destfile="${build.dir}/${project.name}-all-with-dic-${version}.jar" basedir="${build.java.dir}" >
 			<manifest>
 				<attribute name="Main-Class" value="com.chenlb.mmseg4j.example.Complex"/>
 			</manifest>
@@ -103,7 +103,7 @@
 	</target>
 	<target name="jar.core-with-dic" depends="build.java">
 		<copy file="data/words.dic" todir="${build.java.dir}/data" preservelastmodified="true" />
-		<jar destfile="${build.dir}/${project.name}-core-${version}-with-dic.jar" basedir="${build.java.dir}" >
+		<jar destfile="${build.dir}/${project.name}-core-with-dic-${version}.jar" basedir="${build.java.dir}" >
 			<manifest>
 				<attribute name="Main-Class" value="com.chenlb.mmseg4j.example.Complex"/>
 			</manifest>
@@ -128,7 +128,7 @@
 		<copy todir="temp-zip/dist" preservelastmodified="true">
 			<fileset dir="${build.dir}">
 				<include name="${project.name}-*-${version}.jar"/>
-				<include name="${project.name}-core-${version}-with-dic.jar"/>
+				<include name="${project.name}-core-with-dic-${version}.jar"/>
 				<exclude name="${project.name}-all-${version}.jar"/>
 			</fileset>
 		<!--
@@ -141,11 +141,19 @@
 		<copy todir="temp-zip" preservelastmodified="true">
 			<fileset dir="${build.dir}">
 				<include name="${project.name}-all-${version}.jar"/>
-				<include name="${project.name}-all-${version}-with-dic.jar"/>
+				<include name="${project.name}-all-with-dic-${version}.jar"/>
 			</fileset>
 			<fileset dir="">
 				<include name="*.txt"/>
 				<include name="src/**"/>
+				<include name="test/**"/>
+				<include name="pom.xml"/>
+				<include name="mmseg4j-all/pom.xml"/>
+				<include name="mmseg4j-all-with-dic/pom.xml"/>
+				<include name="mmseg4j-analysis/pom.xml"/>
+				<include name="mmseg4j-core/pom.xml"/>
+				<include name="mmseg4j-core-with-dic/pom.xml"/>
+				<include name="mmseg4j-solr/pom.xml"/>
 				<!--include name="lib/**"/-->
 				<include name="data/*.dic"/>
 				<include name="build.properties"/>

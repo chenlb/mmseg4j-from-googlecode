@@ -101,9 +101,41 @@ solrconfig.xml：
 
 此功能可以让外置程序做相关的控制，如：尝试加载词库，然后外置程序决定是否重做索引。
 
+## 10、只结合 lucene 使用
 
-在 solr 1.3/1.4 与 lucene 2.3/2.4/2.9 测试过，[官方博客](http://blog.chenlb.com/category/mmseg4j)
+pom.xml
 
-1.7.2 与 1.6.2 开始核心的程序与 lucene 和 solr 扩展分开打包，方便兼容低版本的 lucene，同时给出低版本（<= lucene 2.2）的 lucene 扩展请仿照 MMSegTokenizer.java。
+```xml
+<dependency>
+	<groupId>com.chenlb.mmseg4j</groupId>
+	<artifactId>mmseg4j-dic</artifactId>
+	<version>1.8.6</version>
+</dependency>
+<dependency>
+	<groupId>com.chenlb.mmseg4j</groupId>
+	<artifactId>mmseg4j-analysis</artifactId>
+	<version>1.8.6</version>
+</dependency>
+```
+
+ComplexAnalyzerDemo
+
+```java
+Analyzer analyzer = new ComplexAnalyzer();
+String txt = "研究生命起源";
+
+TokenStream ts = analyzer.tokenStream("txt", new StringReader(txt));
+
+for(Token t= new Token(); (t= TokenUtils.nextToken(ts, t)) !=null;) {
+	System.out.println(t);
+}
+
+ts.close();
+analyzer.close();
+```
+
+## 11、反馈
 
 可以在新版 [mmseg4j-solr issues](https://github.com/chenlb/mmseg4j-solr/issues) 提出希望 mmseg4j 有的功能或 bug。
+
+[官方博客](http://blog.chenlb.com/category/mmseg4j) 有一些关于 solr 使用 mmseg4j 旧的文章。
