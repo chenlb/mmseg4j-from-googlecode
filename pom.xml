@@ -114,5 +114,6 @@
 		<module>mmseg4j-core-with-dic</module>
 		<module>mmseg4j-all</module>
 		<module>mmseg4j-all-with-dic</module>
+		<module>mmseg4j-dic</module>
 	</modules>
 </project>
