@@ -106,7 +106,7 @@
   <version>1.8.7-SNAPSHOT</version>
   <properties>
 	  <lucene.version>3.1.0</lucene.version>
-  	<solr.version>3.1.0</solr.version>
+  	<solr.version>8.8.2</solr.version>
   </properties>
 	<modules>
 		<module>mmseg4j-core</module>
